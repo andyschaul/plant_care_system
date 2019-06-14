@@ -1,5 +1,5 @@
 # test tsl2591 light sensor
-# install by sudo pip3 install python-tsl2591
+
 import board
 import busio
 import adafruit_tsl2591
