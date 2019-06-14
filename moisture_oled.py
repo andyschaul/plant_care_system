@@ -1,4 +1,27 @@
-# Example: https://learn.adafruit.com/adafruit-pioled-128x32-mini-oled-for-raspberry-pi/usage
+# Links:
+#https://learn.adafruit.com/adafruit-pioled-128x32-mini-oled-for-raspberry-pi/usage
+
+# Soil Sensor Wiring
+
+#    -  ----------------------------------------------------
+#  -                           This is the board        GND                                                                                  
+# -        <--Direction        side of the soil         VIN
+# -                             sensor              I2C SDA
+#  -                                                I2C SCL
+#    -   ---------------------------------------------------
+
+# Pi 3v3 to VIN 
+# Pi GND to GND
+# Pi SCL to SCL
+# Pi SDA to SDA
+
+# Light Sensor Wiring
+
+# Pi 3v3 to VIN 
+# Pi GND to GND
+# Pi SCL to SCL
+# Pi SDA to SDA
+
 
 #OLED Imports
 import time
