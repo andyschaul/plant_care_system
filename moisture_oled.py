@@ -1,5 +1,7 @@
 # Links:
-#https://learn.adafruit.com/adafruit-pioled-128x32-mini-oled-for-raspberry-pi/usage
+# https://learn.adafruit.com/adafruit-pioled-128x32-mini-oled-for-raspberry-pi/usage
+# https://learn.adafruit.com/adafruit-stemma-soil-sensor-i2c-capacitive-moisture-sensor
+# https://learn.adafruit.com/adafruit-tsl2591/wiring-and-test
 
 # Soil Sensor Wiring
 
