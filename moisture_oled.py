@@ -15,12 +15,16 @@
 # Pi SCL to SCL
 # Pi SDA to SDA
 
+# to install soil sensor package use sudo pip3 install adafruit-circuitpython-seesaw
+
 # Light Sensor Wiring
 
 # Pi 3v3 to VIN 
 # Pi GND to GND
 # Pi SCL to SCL
 # Pi SDA to SDA
+
+# To install light sensor package use sudo pip3 install adafruit_tsl291 (double check this)
 
 
 #OLED Imports
