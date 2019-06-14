@@ -78,8 +78,8 @@ while True:
     draw.rectangle((0, 0, width, height), outline=0, fill=0)
 
     # Write four lines of text.
-    draw.text((x, top+0), "Moisture:" + str(touch), font=font, fill=255)
-    draw.text((x, top+8), "Temp:" + str(round(temp, 2)), font=font, fill=255)
+    draw.text((x, top+0), "Moisture: " + str(touch), font=font, fill=255)
+    draw.text((x, top+8), "Temp: " + str(round(temp, 2)), font=font, fill=255)
     draw.text((x, top+16), "Water Smartly!", font=font, fill=255)
     draw.text((x, top+25), "", font=font, fill=255)
 
