@@ -32,18 +32,23 @@
 #OLED Imports
 import time
 import subprocess
-
 from board import SCL, SDA
 import busio
 from PIL import Image, ImageDraw, ImageFont
 import adafruit_ssd1306
 
-
 # Soild Sensor Imports
 from board import SCL, SDA
 import busio
-
 from adafruit_seesaw.seesaw import Seesaw
+
+# Light Sensor Imports (TSL2591)
+import board
+import adafruit_tsl2591
+
+# Setup for Light sensor
+i2c_light = busio.I2C(board.SCL, board.SDA)
+sensor = adafruit_tsl2591.TSL2591(i2c_light)
 
 # Setup for STEMMA sensor
 i2c_bus = busio.I2C(SCL, SDA)
@@ -93,7 +98,7 @@ x = 0
 font = ImageFont.truetype('/home/pi/slkscrb.ttf', 8)
 
 while True:
-    #Get moisture and temperature readings
+    # Get moisture and temperature readings
     touch = ss.moisture_read()
     temp = ss.get_temp()
     temp = 9/5 * temp + 32
@@ -101,6 +106,8 @@ while True:
     print('Moisutre: ', str(touch))
     time.sleep(1)
 
+    # Get visible light reading
+    light = sensor.visible
 
 
     # Draw a black filled box to clear the image.
@@ -109,8 +116,8 @@ while True:
     # Write four lines of text.
     draw.text((x, top+0), "Moisture: " + str(touch), font=font, fill=255)
     draw.text((x, top+8), "Temp: " + str(round(temp, 2)), font=font, fill=255)
-    draw.text((x, top+16), "Water Smartly!", font=font, fill=255)
-    draw.text((x, top+25), "", font=font, fill=255)
+    draw.text((x, top+16), "Light: " + str(light), font=font, fill=255)
+    draw.text((x, top+25), "Water Smartly!", font=font, fill=255)
 
 
     # Display image.
