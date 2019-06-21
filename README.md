@@ -5,9 +5,10 @@ to check soild moisture and temperature readings once per second
 and dislays them on screen
 
 Files:
-- moisture_oled.py - runs above program
+- plant_system_test.py - test soil sensor, OLED, and light sensor (light switch and water pump to be added)
 - moisture_test.py - used to test sensor initially
 - light_sensor_test.py - used to test sensor initially
+- relay_test.py - used to test relay switch for light
 - slkscr.tff - font files from kotte.org
 - slkscrb.tff - font files from kottke.org
 
