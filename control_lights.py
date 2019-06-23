@@ -32,7 +32,10 @@ while True:
     #print('Infrared: {0}'.format(sensor.infrared))
     #print('Full Spectrum: {0}'.format(sensor.infrared + sensor.visible))
     
-    # Record full spectrum value
+    # Turn off lights if on and Record full spectrum value
+    for i in OutputPins:
+        GPIO.output(i, False)
+        time.sleep(2)
     level = sensor.visible
     print('Level: {0}'.format(level))
     time.sleep(1)
