@@ -26,9 +26,9 @@ while True:
     for i in OutputPins:
         GPIO.output(i, True)
         print('Relay On')
-    time.sleep(2)
+    time.sleep(3)
     
     for i in OutputPins:
         GPIO.output(i, False)
         print('Relay Off')
-    time.sleep(2)
+    time.sleep(5)
