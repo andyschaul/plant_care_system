@@ -103,12 +103,12 @@ while True:
     temp = ss.get_temp()
     temp = 9/5 * temp + 32
     print('Temp: ', str(temp))
-    print('Moisutre: ', str(touch))
+    print('Moisture: ', str(touch))
     time.sleep(1)
 
     # Get visible light reading
     light = sensor.visible
-
+    print('Light: ', str(light))
 
     # Draw a black filled box to clear the image.
     draw.rectangle((0, 0, width, height), outline=0, fill=0)
@@ -125,6 +125,11 @@ while True:
     disp.show()
     time.sleep(1)
     disp.fill(0)
+ 
+
+    level = sensor.visible
+ 
+
 
   
         
