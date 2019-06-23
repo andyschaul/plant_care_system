@@ -5,7 +5,8 @@ to check soild moisture and temperature readings once per second
 and dislays them on screen
 
 Files:
-- plant_system_test.py - test soil sensor, OLED, and light sensor (light switch and water pump to be added)
+- control_OLED.py - Gets moisture, temperature, and light readings and displays on OLED
+- control_lights.py - Turns on lights if light reading below a threshold (then turns them off and checks again)
 - moisture_test.py - used to test sensor initially
 - light_sensor_test.py - used to test sensor initially
 - relay_test.py - used to test relay switch for light
