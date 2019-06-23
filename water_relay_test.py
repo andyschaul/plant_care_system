@@ -19,16 +19,16 @@ OutputPins = [23]
 
 for i in OutputPins:
     GPIO.setup(i, GPIO.OUT)
-    GPIO.output(i, False)
+    GPIO.output(i, True)
 
 
 while True:
     for i in OutputPins:
-        GPIO.output(i, True)
+        GPIO.output(i, False)
         print('Relay On')
     time.sleep(3)
     
     for i in OutputPins:
-        GPIO.output(i, False)
+        GPIO.output(i, True)
         print('Relay Off')
     time.sleep(5)
