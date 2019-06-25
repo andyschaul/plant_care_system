@@ -44,8 +44,8 @@ while True:
     # Then keep the light on for a time
     # Turn it off to check light level again
     # On and off times
-    on_minutes = 20
-    off_minutes = 20
+    on_minutes = 5
+    off_minutes = 40
     
     if level < 1704034:
         for i in OutputPins:
@@ -53,11 +53,12 @@ while True:
             print('Relay On')
             # This is how long to keep the light on for (seconds)
             print('Light will be on for: ' + str(on_minutes) + ' minutes') 
+            print('Then it will be off for ' + str(off_minutes) + ' minutes.')
             time.sleep(60* on_minutes)
             # Turn light off to get a fair light reading for next round
             GPIO.output(i, True)
             print('Relay Off')
-            time.sleep(2)
+            time.sleep(60*60)
         
     elif level > 1704034:
         for i in OutputPins:
