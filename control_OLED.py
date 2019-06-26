@@ -104,12 +104,11 @@ while True:
     temp = 9/5 * temp + 32
     print('Temp: ', str(temp))
     print('Moisture: ', str(touch))
-    time.sleep(1)
-
     # Get visible light reading
     light = sensor.visible
     print('Light: ', str(light))
-
+    print('-----------------------------------')
+    time.sleep(2)
     # Draw a black filled box to clear the image.
     draw.rectangle((0, 0, width, height), outline=0, fill=0)
 
