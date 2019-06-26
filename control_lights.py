@@ -1,5 +1,8 @@
 # Test light sensor and light relay
 
+# To print time of readings
+import datetime
+
 # Light Sensor Setup
 import board
 import busio
@@ -51,6 +54,8 @@ while True:
         for i in OutputPins:
             GPIO.output(i, False)
             print('Relay On')
+            # This is what time the light status was changed
+            print('Time: ' + str(datetime.datetime.now().isoformat()))
             # This is how long to keep the light on for (seconds)
             print('Light will be on for: ' + str(on_minutes) + ' minutes') 
             print('Then it will be off for ' + str(off_minutes) + ' minutes.')
@@ -64,6 +69,8 @@ while True:
         for i in OutputPins:
             GPIO.output(i, True)
             print('Relay Off')
+            # This is what time the light status was changed
+            print('Time: ' + str(datetime.datetime.now().isoformat()))
             print('Light will be off for: ' + str(off_minutes) + ' minutes')
             time.sleep(60 * off_minutes)
     
