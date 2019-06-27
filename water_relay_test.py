@@ -2,7 +2,7 @@
 
 # Wiring
 
-# Relay —> Pi
+# Relay to Pi
 # GND - GND
 # VCC - 5V
 # IN1 - Pin 16 (GPIO 23)

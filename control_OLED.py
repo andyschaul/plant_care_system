@@ -95,7 +95,7 @@ x = 0
 
 # Alternatively load a TTF font.  Make sure the .ttf font file is in the
 
-font = ImageFont.truetype('/home/pi/slkscrb.ttf', 8)
+font = ImageFont.truetype('/home/pi/virtEnv1/plant_care_system/slkscrb.ttf', 8)
 
 while True:
     # Get moisture and temperature readings
