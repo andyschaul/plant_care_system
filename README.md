@@ -5,6 +5,8 @@ to create a plant care system
 
 You can find indiviual component test programs in the component_tests folder for the light sensor, moisture sensor, relay, and relay water pump
 
+(Below protoype Fritz and image need to updated)
+
 Files:
 - control_OLED.py - Gets moisture, temperature, and light readings and displays on OLED
 - control_lights.py - Turns on lights if light reading below a threshold (then turns them off and checks again)
