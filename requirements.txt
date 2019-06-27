@@ -2,3 +2,5 @@ adafruit-circuitpython-seesaw
 adafruit-circuitpython-tsl2591
 adafruit-circuitpython-ssd1306
 RPi.GPIO
+Pillow
+Adafruit-Blinka
