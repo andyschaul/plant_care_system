@@ -1,4 +1,4 @@
-# Soil Moisture Project
+# Plant Care Project
 
 Combines RaspberryPi Zerio, Stemma Soil Sensor, Light Sensor, Water Pump, and PiOLED display
 to create a plant care system
