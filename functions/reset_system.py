@@ -29,8 +29,10 @@ def reset_hardware():
     '''Resets lights and water pump to off positions
         refers to other files'''
     
-    os.system('python3 lights_off.py')
-    os.system('python3 water_off.py')
+    path = '/home/pi/virtEnv1/plant_care_system/functions/'
+    
+    os.system('python3 ' + path + 'lights_off.py')
+    os.system('python3 ' + path + 'water_off.py')
     
 
 

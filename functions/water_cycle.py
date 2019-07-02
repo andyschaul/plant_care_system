@@ -14,6 +14,7 @@
 
 import RPi.GPIO as GPIO
 import time
+import datetime
 
 
 GPIO.setmode(GPIO.BCM)
@@ -58,11 +59,15 @@ def water_cycle(interval_minutes=120):
         GPIO.setup(i, GPIO.OUT)
         GPIO.output(i, True)
 
+    print('Water Cycle Started')
 
     while True:
         touch = ss.moisture_read()
         print('Moisture: ', touch)
-        if touch < 800:
+        if touch >= 799:
+            time.sleep(10)
+        
+        elif touch <= 800:
             for i in OutputPins:
                 GPIO.output(i, False)
                 print('Relay On')
@@ -71,6 +76,9 @@ def water_cycle(interval_minutes=120):
             for i in OutputPins:
                 GPIO.output(i, True)
                 print('Relay Off')
+                print('Time: ', str(datetime.datetime.now().isoformat()))
+                print('Will re-check moisture in ' + str(interval_minutes) + ' minutes')
             time.sleep(60 * interval_minutes)
+            
 
 water_cycle()

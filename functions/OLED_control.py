@@ -50,6 +50,8 @@ def control_OLED():
     '''
     Funtion to manage OLED readouts of light, moisture, and temperature
     '''
+    print('OLED Started')
+    
     # Setup for Light sensor
     i2c_light = busio.I2C(board.SCL, board.SDA)
     sensor = adafruit_tsl2591.TSL2591(i2c_light)
@@ -106,12 +108,12 @@ def control_OLED():
         touch = ss.moisture_read()
         temp = ss.get_temp()
         temp = 9/5 * temp + 32
-        print('Temp: ', str(temp))
-        print('Moisture: ', str(touch))
+        #print('Temp: ', str(temp))
+        #print('Moisture: ', str(touch))
         # Get visible light reading
         light = sensor.visible
-        print('Light: ', str(light))
-        print('-----------------------------------')
+        #print('Light: ', str(light))
+        #print('-----------------------------------')
         time.sleep(2)
         # Draw a black filled box to clear the image.
         draw.rectangle((0, 0, width, height), outline=0, fill=0)

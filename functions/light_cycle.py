@@ -44,6 +44,8 @@ def light_control(threshold=1704034, on_minutes=5, off_minutes=40):
             default is 40
         
         '''
+    print('Light Cycle Started')
+    
     # Make sure all the lights are off first
     for i in OutputPins:
         GPIO.setup(i, GPIO.OUT)

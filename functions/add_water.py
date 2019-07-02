@@ -10,6 +10,7 @@
 
 import RPi.GPIO as GPIO
 import time
+import os
 
 
 GPIO.setmode(GPIO.BCM)
@@ -22,14 +23,14 @@ for i in OutputPins:
     GPIO.output(i, True)
 
 
-while True:
-    for i in OutputPins:
-        GPIO.output(i, False)
-        print('Relay On')
-        time.sleep(3)
+
+for i in OutputPins:
+    GPIO.output(i, False)
+    print('Adding Water')
     time.sleep(3)
-    
-    for i in OutputPins:
-        GPIO.output(i, True)
-        print('Relay Off')
-    time.sleep(5)
+
+for i in OutputPins:
+    GPIO.output(i, True)
+    print('Done Adding Water')
+
+
