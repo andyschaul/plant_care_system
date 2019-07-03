@@ -3,7 +3,11 @@
 Combines RaspberryPi Zerio, Stemma Soil Sensor, Light Sensor, Water Pump, and PiOLED display
 to create a plant care system
 
+It is triggered by buttons and has a small display
+
 ## Usage
+Run launch_controls.py and then start system (light/water), stop system, add additional water, turn on/ff lights with buttons
+ 
 You can find indiviual component test programs in the component_tests folder for the light sensor, moisture sensor, relay, and relay water pump
 You can find functions in functions folder (light/light sensor control, moisture sensor/water pump control, reset system, and  start system)
 
@@ -12,9 +16,6 @@ You can find functions in functions folder (light/light sensor control, moisture
 These are font files used for OLED:
 - slkscr.tff - font files from kotte.org
 - slkscrb.tff - font files from kottke.org
-
-## Additions:
-- Update code to connect moisture sensor and water pump
 
 
 ## Fritz Image:
