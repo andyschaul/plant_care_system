@@ -11,18 +11,22 @@ Run launch_controls.py and then start system (light/water), stop system, add add
 You can find indiviual component test programs in the component_tests folder for the light sensor, moisture sensor, relay, and relay water pump
 You can find functions in functions folder (light/light sensor control, moisture sensor/water pump control, reset system, and  start system)
 
-(Below protoype Fritz and image need to updated)
 
 These are font files used for OLED:
 - slkscr.tff - font files from kotte.org
 - slkscrb.tff - font files from kottke.org
 
 
-## Fritz Image:
+## Images:
 
-![soil_moisture_light_oled_bb](https://user-images.githubusercontent.com/30374932/59544894-4bf7ef80-8edc-11e9-9910-c1339fdc2949.jpg)
+### Enclosure and Buttons
+![IMG_2532](https://user-images.githubusercontent.com/30374932/60628344-ad61fe80-9db6-11e9-947e-4ae26afeee1d.jpg)
 
+### Soil Sensor
+![IMG_2533](https://user-images.githubusercontent.com/30374932/60628352-b94dc080-9db6-11e9-9f23-3b06faaa9eaa.jpg)
 
-## Proto Image:
-    
-![IMG_2442](https://user-images.githubusercontent.com/30374932/59478458-eeea3400-8e1e-11e9-97fc-02d85fd160f4.jpg)
+### Water Pump (Peristaltic)
+![IMG_2534](https://user-images.githubusercontent.com/30374932/60628364-c4a0ec00-9db6-11e9-87a6-93fc77f6fed6.jpg)
+
+### Light Sensor (Left) and PiOLED (Right)
+![IMG_2535](https://user-images.githubusercontent.com/30374932/60628367-c79bdc80-9db6-11e9-91a1-d02533471d19.jpg)
