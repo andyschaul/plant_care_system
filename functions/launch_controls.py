@@ -1,4 +1,4 @@
-# Code to test arcade button
+# Code to launch button controls for plant care system
 # http://raspberrypihq.com/use-a-push-button-with-raspberry-pi-gpio/
 
 # Circuit
@@ -7,7 +7,6 @@
 # Signal -- GPIO (see below for pins)
 
 import os
-
 import RPi.GPIO as GPIO # Import Raspberry Pi GPIO library
 GPIO.setwarnings(False) # Ignore warning for now
 GPIO.setmode(GPIO.BOARD) # Use physical pin numbering

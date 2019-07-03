@@ -11,6 +11,7 @@
 # VCC - 5V
 # IN1 - Pin 16 (GPIO 23)
 
+# Relay should be wired in Normally Open configuration
 
 import RPi.GPIO as GPIO
 import time

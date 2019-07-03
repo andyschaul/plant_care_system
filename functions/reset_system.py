@@ -1,4 +1,6 @@
-# File to reset system
+# File to reset system (turn off lights and water cycles)
+# Kills running files in project and resets hardware to off
+# Trigger by button via launch_controls.py
 
 
 #############################
@@ -34,7 +36,6 @@ def reset_hardware():
     os.system('python3 ' + path + 'lights_off.py')
     os.system('python3 ' + path + 'water_off.py')
     
-
 
 #############################
 # Run above functions

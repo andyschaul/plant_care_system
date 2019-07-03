@@ -1,6 +1,14 @@
-# To turn lights off
+# To turn lights on
+# Trigger by button via launch_controls.py
 
-# Test light sensor and light relay
+# Relay Wiring
+
+# Relay —> Pi
+# GND - GND
+# VCC - 5V
+# IN1 - Pin 18 (GPIO 24)
+
+# Relay should be wired in Normally Open configuration
 
 # To print time of readings
 import datetime
@@ -19,7 +27,6 @@ sensor = adafruit_tsl2591.TSL2591(i2c_light)
 
 import RPi.GPIO as GPIO
 import time
-
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)

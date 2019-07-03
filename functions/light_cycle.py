@@ -1,4 +1,12 @@
-# Test light sensor and light relay
+# This file runs the light sensor and light relay
+# It connets the two in order to turn lights on
+# only if reading is below a provided threshold
+# Keeps them on for a provided number of minutes
+# And shuts them off for a provided number of minutes
+# before checking the light reading and starting the
+# cycle over
+
+# Trigger by launch_controls.py along with water_cycle.py
 
 # To print time of readings
 import datetime
@@ -70,9 +78,6 @@ def light_control(threshold=1704034, on_minutes=5, off_minutes=40):
         # If value below a threshold, turn the relay light on
         # Then keep the light on for a time
         # Turn it off to check light level again
-        # On and off times
-        #on_minutes =
-        #off_minutes = 40
         
         if level < threshold:
             for i in OutputPins:

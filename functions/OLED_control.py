@@ -1,3 +1,7 @@
+# This file gathers light, moisture, and temperature
+# Readings in order to display them on the PiOLED
+# Screen
+
 # Links:
 # https://learn.adafruit.com/adafruit-pioled-128x32-mini-oled-for-raspberry-pi/usage
 # https://learn.adafruit.com/adafruit-stemma-soil-sensor-i2c-capacitive-moisture-sensor
@@ -95,7 +99,6 @@ def control_OLED():
     # Move left to right keeping track of the current x position for drawing shapes.
     x = 0
 
-
     # Load default font.
     #font = ImageFont.load_default()
 
@@ -124,17 +127,14 @@ def control_OLED():
         draw.text((x, top+16), "Light: " + str(light), font=font, fill=255)
         draw.text((x, top+25), "Water Smartly!", font=font, fill=255)
 
-
         # Display image.
         disp.image(image)
         disp.show()
         time.sleep(1)
         disp.fill(0)
-     
 
         level = sensor.visible
  
-
 
 # Run function
 control_OLED()
