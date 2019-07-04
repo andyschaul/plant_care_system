@@ -133,8 +133,6 @@ def control_OLED():
         time.sleep(1)
         disp.fill(0)
 
-        level = sensor.visible
- 
 
 # Run function
 control_OLED()
