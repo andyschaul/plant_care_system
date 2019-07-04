@@ -16,7 +16,7 @@ def kill_processes():
     Function to kill currently running py files in project
     '''
     for filename in os.listdir(path):
-        print(filename)
+        #print(filename)
         if filename == 'reset_system.py':
             pass
         elif filename == 'launch_controls.py':

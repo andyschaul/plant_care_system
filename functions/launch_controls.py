@@ -11,7 +11,11 @@
 activator = '/home/pi/virtEnv1/bin/activate_this.py'
 exec(open(activator).read(), {'__file__': activator})
 
-
+# Use this to print your config_system.py settings
+import sys
+sys.path.insert(0, '/home/pi/virtEnv1/plant_care_system/')
+import config_system as settings
+print(settings.settings)
 
 # Circuit
 # Button -- Pi

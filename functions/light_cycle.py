@@ -6,6 +6,12 @@
 # before checking the light reading and starting the
 # cycle over
 
+# Import your config_system.py
+# This contains your settings for the system
+import sys
+sys.path.insert(0, '/home/pi/virtEnv1/plant_care_system/')
+import config_system as settings 
+
 # Trigger by launch_controls.py along with water_cycle.py
 
 # To print time of readings
@@ -33,7 +39,7 @@ OutputPins = [24]
 
 # Function to control lights based on light sensor readings
 
-def light_control(threshold=1704034, on_minutes=5, off_minutes=40):
+def light_control(light_threshold=1704034, on_minutes=5, off_minutes=40):
     '''A function to control grow lights based on light
         sensor readings.
         
@@ -79,7 +85,7 @@ def light_control(threshold=1704034, on_minutes=5, off_minutes=40):
         # Then keep the light on for a time
         # Turn it off to check light level again
         
-        if level < threshold:
+        if level < light_threshold:
             for i in OutputPins:
                 GPIO.output(i, False)
                 print('Relay On')
@@ -94,7 +100,7 @@ def light_control(threshold=1704034, on_minutes=5, off_minutes=40):
                 print('Relay Off')
                 time.sleep(60*60)
             
-        elif level > 1704034:
+        elif level > light_threshold:
             for i in OutputPins:
                 GPIO.output(i, True)
                 print('Relay Off')
@@ -103,4 +109,6 @@ def light_control(threshold=1704034, on_minutes=5, off_minutes=40):
                 print('Light will be off for: ' + str(off_minutes) + ' minutes')
                 time.sleep(60 * off_minutes)
         
-light_control()
+light_control(light_threshold=settings.settings['light_threshold'],
+              on_minutes=settings.settings['on_minutes'],
+              off_minutes=settings.settings['off_minutes'])

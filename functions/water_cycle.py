@@ -13,6 +13,14 @@
 
 # Relay should be wired in Normally Open configuration
 
+# Import your config_system.py
+# This contains your settings for the system
+import sys
+sys.path.insert(0, '/home/pi/virtEnv1/plant_care_system/')
+import config_system as settings
+
+## Other required imports and setup
+
 import RPi.GPIO as GPIO
 import time
 import datetime
@@ -53,7 +61,7 @@ ss = Seesaw(i2c_bus, addr=0x36)
 # Program
 ################################
 
-def water_cycle(interval_minutes=120):
+def water_cycle(water_for_seconds=3, after_watering_wait_minutes=120):
 
     # Make sure pump/valve off
     for i in OutputPins:
@@ -72,14 +80,15 @@ def water_cycle(interval_minutes=120):
             for i in OutputPins:
                 GPIO.output(i, False)
                 print('Relay On')
-            time.sleep(3)
+            time.sleep(water_for_seconds)
         
             for i in OutputPins:
                 GPIO.output(i, True)
                 print('Relay Off')
                 print('Time: ', str(datetime.datetime.now().isoformat()))
-                print('Will re-check moisture in ' + str(interval_minutes) + ' minutes')
+                print('Will re-check moisture in ' + str(after_watering_wait_minutes) + ' minutes')
             time.sleep(60 * interval_minutes)
             
 
-water_cycle()
+water_cycle(water_for_seconds=settings.settings['water_for_seconds'],
+            after_watering_wait_minutes=settings.settings['water_for_seconds'])
