@@ -6,7 +6,10 @@ to create a plant care system
 It is triggered by buttons and has a small display
 
 ## Usage
+Configure settings in config_system.py
 Run launch_controls.py and then start system (light/water), stop system, add additional water, turn on/ff lights with buttons
+You'll need to update file paths
+
  
 You can find indiviual component test programs in the component_tests folder for the light sensor, moisture sensor, relay, and relay water pump
 You can find functions in functions folder (light/light sensor control, moisture sensor/water pump control, reset system, and  start system)
