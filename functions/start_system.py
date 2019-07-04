@@ -20,6 +20,8 @@ def kill_processes():
         #print(filename)
         if filename == 'reset_system.py':
             pass
+        if filename == 'launch_controls.py':
+            pass
         elif filename.endswith('.py'):
             cmd = 'pkill -f ' + str(filename)
             os.system(cmd)

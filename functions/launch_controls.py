@@ -1,5 +1,17 @@
+#!/usr/bin/python
+
+# File in rc.local to run at startup
+# sudo nano /etc/rc.local
+# sudo /home/pi/virtEnv1/plant_care_system/functions/launch_controls.py &
+
 # Code to launch button controls for plant care system
 # http://raspberrypihq.com/use-a-push-button-with-raspberry-pi-gpio/
+
+# To activate venv
+activator = '/home/pi/virtEnv1/bin/activate_this.py'
+exec(open(activator).read(), {'__file__': activator})
+
+
 
 # Circuit
 # Button -- Pi
