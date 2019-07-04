@@ -16,7 +16,7 @@ import config_system as settings
 
 # To print time of readings
 import datetime
-
+import csv
 # Light Sensor Setup
 import board
 import busio
@@ -78,8 +78,8 @@ def light_control(light_threshold=1704034, on_minutes=5, off_minutes=40):
             GPIO.output(i, True)
             time.sleep(2)
         level = sensor.visible
-        print('Level: {0}'.format(level))
-        time.sleep(1)
+        print('Light Level: {0}'.format(level))
+        #time.sleep(1)
         
         # If value below a threshold, turn the relay light on
         # Then keep the light on for a time
@@ -94,20 +94,41 @@ def light_control(light_threshold=1704034, on_minutes=5, off_minutes=40):
                 # This is how long to keep the light on for (seconds)
                 print('Light will be on for: ' + str(on_minutes) + ' minutes') 
                 print('Then it will be off for ' + str(off_minutes) + ' minutes.')
+                
+                # Record Data
+                row = [datetime.datetime.now().isoformat(),
+                           level,
+                           'True']
+                #print(row)
+                with open('/home/pi/virtEnv1/plant_care_system/functions/light_data.csv', 'a') as f:
+                    writer = csv.writer(f)
+                    writer.writerow(row)
+                
                 time.sleep(60* on_minutes)
                 # Turn light off to get a fair light reading for next round
                 GPIO.output(i, True)
                 print('Relay Off')
                 time.sleep(60*60)
             
-        elif level > light_threshold:
+        elif level >= light_threshold:
             for i in OutputPins:
                 GPIO.output(i, True)
                 print('Relay Off')
                 # This is what time the light status was changed
                 print('Time: ' + str(datetime.datetime.now().isoformat()))
                 print('Light will be off for: ' + str(off_minutes) + ' minutes')
+                
+                # Record Data
+                row = [datetime.datetime.now().isoformat(),
+                           level,
+                           'False']
+                #print(row)
+                with open('/home/pi/virtEnv1/plant_care_system/functions/light_data.csv', 'a') as f:
+                    writer = csv.writer(f)
+                    writer.writerow(row)
+                
                 time.sleep(60 * off_minutes)
+        
         
 light_control(light_threshold=settings.settings['light_threshold'],
               on_minutes=settings.settings['on_minutes'],

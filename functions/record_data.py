@@ -1,6 +1,5 @@
 # This file gathers light, moisture, and temperature
-# Readings in order to display them on the PiOLED
-# Screen
+# and records them in a file
 
 # Links:
 # https://learn.adafruit.com/adafruit-pioled-128x32-mini-oled-for-raspberry-pi/usage
@@ -52,11 +51,11 @@ from adafruit_seesaw.seesaw import Seesaw
 import board
 import adafruit_tsl2591
 
-def control_OLED():
+def record_data():
     '''
-    Funtion to manage OLED readouts of light, moisture, and temperature
+    Funtion to record time, moisture, temp, and light data
     '''
-    print('OLED Started')
+    print('Recording Data')
     
     # Setup for Light sensor
     i2c_light = busio.I2C(board.SCL, board.SDA)
@@ -66,47 +65,6 @@ def control_OLED():
     i2c_bus = busio.I2C(SCL, SDA)
 
     ss = Seesaw(i2c_bus, addr=0x36)
-
-    # Setup for OLED
-
-    # Create the I2C interface.
-    i2c = busio.I2C(SCL, SDA)
-
-    # Create the SSD1306 OLED class.
-    # The first two parameters are the pixel width and pixel height.  Change these
-    # to the right size for your display!
-    disp = adafruit_ssd1306.SSD1306_I2C(128, 32, i2c)
-
-    # Clear display.
-    disp.fill(0)
-    disp.show()
-
-    # Create blank image for drawing.
-    # Make sure to create image with mode '1' for 1-bit color.
-    width = disp.width
-    height = disp.height
-    image = Image.new('1', (width, height))
-
-    # Get drawing object to draw on image.
-    draw = ImageDraw.Draw(image)
-
-    # Draw a black filled box to clear the image.
-    draw.rectangle((0, 0, width, height), outline=0, fill=0)
-
-    # Draw some shapes.
-    # First define some constants to allow easy resizing of shapes.
-    padding = -2
-    top = padding
-    bottom = height-padding
-    # Move left to right keeping track of the current x position for drawing shapes.
-    x = 0
-
-    # Load default font.
-    #font = ImageFont.load_default()
-
-    # Alternatively load a TTF font.  Make sure the .ttf font file is in the
-
-    font = ImageFont.truetype('/home/pi/virtEnv1/plant_care_system/slkscrb.ttf', 8)
 
     while True:
         # Get moisture and temperature readings
@@ -119,25 +77,22 @@ def control_OLED():
         light = sensor.visible
         #print('Light: ', str(light))
         #print('-----------------------------------')
+
+        # Write data to csv
+        row = [datetime.datetime.now().isoformat(),
+               touch,
+               temp,
+               light]
+        #print(row)
+        with open('/home/pi/virtEnv1/plant_care_system/functions/sensor_data.csv', 'a') as f:
+            writer = csv.writer(f)
+            writer.writerow(row)
         
-        time.sleep(2)
-        # Draw a black filled box to clear the image.
-        draw.rectangle((0, 0, width, height), outline=0, fill=0)
-
-        # Write four lines of text.
-        draw.text((x, top+0), "Moisture: " + str(touch), font=font, fill=255)
-        draw.text((x, top+8), "Temp: " + str(round(temp, 2)), font=font, fill=255)
-        draw.text((x, top+16), "Light: " + str(light), font=font, fill=255)
-        draw.text((x, top+25), "Water Smartly!", font=font, fill=255)
-
-        # Display image.
-        disp.image(image)
-        disp.show()
-        time.sleep(1)
-        disp.fill(0)
+        time.sleep(3600)
 
 # Run function
-control_OLED()
+record_data()
+
 
 
 

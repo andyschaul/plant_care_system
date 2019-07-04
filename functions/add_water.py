@@ -8,6 +8,14 @@
 # VCC - 5V
 # IN1 - Pin 16 (GPIO 23)
 
+# Import your config_system.py
+# This contains your settings for the system
+import sys
+sys.path.insert(0, '/home/pi/virtEnv1/plant_care_system/')
+import config_system as settings
+import csv
+
+import datetime
 
 import RPi.GPIO as GPIO
 import time
@@ -21,7 +29,7 @@ GPIO.setwarnings(False)
 OutputPins = [23]
 
 
-def add_water(seconds):
+def add_water(manual_water_add_seconds):
     # Make Sure Relay is off first
     for i in OutputPins:
         GPIO.setup(i, GPIO.OUT)
@@ -29,13 +37,23 @@ def add_water(seconds):
     # Turn on pump/valve for seconds
     for i in OutputPins:
         GPIO.output(i, False)
-        print('Adding Water')
-        time.sleep(seconds)
+        print('Adding Water for ' + str(manual_water_add_seconds) + ' seconds')
+        time.sleep(manual_water_add_seconds)
     # Turn off pump/valve
     for i in OutputPins:
         GPIO.output(i, True)
         print('Done Adding Water')
+        
+    # Record Data
+    row = [datetime.datetime.now().isoformat(),
+               'Manually Added',
+               'True',
+               manual_water_add_seconds]
+    #print(row)
+    with open('/home/pi/virtEnv1/plant_care_system/functions/water_data.csv', 'a') as f:
+        writer = csv.writer(f)
+        writer.writerow(row)
 
-add_water(3)
+add_water(manual_water_add_seconds=settings.settings['manual_water_add_seconds'])
 
 

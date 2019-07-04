@@ -4,6 +4,12 @@
 
 import os
 
+# Use this to print your config_system.py settings
+import sys
+sys.path.insert(0, '/home/pi/virtEnv1/plant_care_system/')
+import config_system as settings
+print(settings.settings)
+
 #############################
 # Kill Running .py files 
 #############################
@@ -36,3 +42,4 @@ path = '/home/pi/virtEnv1/plant_care_system/functions/'
 os.system('python3 ' + path + 'OLED_control.py &')
 os.system('python3 ' + path + 'light_cycle.py &')
 os.system('python3 ' + path + 'water_cycle.py &')
+os.system('python3 ' + path + 'record_data.py &')

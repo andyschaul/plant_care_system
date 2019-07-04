@@ -9,6 +9,8 @@ settings = {
             'light_threshold': 1704034, # Light reading below which to turn lights on
             'on_minutes': 20, # How many minutes to keep the lights on
             'off_minutes': 40, # How long to keep the lights off before checking again
+            'moisture_threshold': 799, # mositure reading below which to turn on water
             'water_for_seconds': 3, # How long to turn water pump/valvue on for
-            'after_watering_wait_minutes': 120 # minimum wait time before watering again
+            'after_watering_wait_minutes': 120, # minimum wait time before watering again
+            'manual_water_add_seconds': 5 # how many seconds to add water when done manually
             }
