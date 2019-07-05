@@ -106,4 +106,4 @@ def water_cycle(moisture_threshold=799, water_for_seconds=3, after_watering_wait
 
 water_cycle(moisture_threshold=settings.settings['moisture_threshold'],
             water_for_seconds=settings.settings['water_for_seconds'],
-            after_watering_wait_minutes=settings.settings['water_for_seconds'])
+            after_watering_wait_minutes=settings.settings['after_watering_wait_minutes'])

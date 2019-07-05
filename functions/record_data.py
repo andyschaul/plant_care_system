@@ -51,6 +51,16 @@ from adafruit_seesaw.seesaw import Seesaw
 import board
 import adafruit_tsl2591
 
+
+# Setup for Light sensor
+i2c_light = busio.I2C(board.SCL, board.SDA)
+sensor = adafruit_tsl2591.TSL2591(i2c_light)
+
+# Setup for STEMMA sensor
+i2c_bus = busio.I2C(SCL, SDA)
+
+ss = Seesaw(i2c_bus, addr=0x36)
+
 def record_data():
     '''
     Funtion to record time, moisture, temp, and light data
@@ -58,13 +68,13 @@ def record_data():
     print('Recording Data')
     
     # Setup for Light sensor
-    i2c_light = busio.I2C(board.SCL, board.SDA)
-    sensor = adafruit_tsl2591.TSL2591(i2c_light)
+    #i2c_light = busio.I2C(board.SCL, board.SDA)
+    #sensor = adafruit_tsl2591.TSL2591(i2c_light)
 
     # Setup for STEMMA sensor
-    i2c_bus = busio.I2C(SCL, SDA)
+    #i2c_bus = busio.I2C(SCL, SDA)
 
-    ss = Seesaw(i2c_bus, addr=0x36)
+    #ss = Seesaw(i2c_bus, addr=0x36)
 
     while True:
         # Get moisture and temperature readings

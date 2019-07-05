@@ -52,6 +52,20 @@ from adafruit_seesaw.seesaw import Seesaw
 import board
 import adafruit_tsl2591
 
+# Setup for Light sensor
+i2c_light = busio.I2C(board.SCL, board.SDA)
+sensor = adafruit_tsl2591.TSL2591(i2c_light)
+
+# Setup for STEMMA sensor
+i2c_bus = busio.I2C(SCL, SDA)
+
+ss = Seesaw(i2c_bus, addr=0x36)
+
+# Setup for OLED
+
+# Create the I2C interface.
+i2c = busio.I2C(SCL, SDA)
+
 def control_OLED():
     '''
     Funtion to manage OLED readouts of light, moisture, and temperature
@@ -59,18 +73,18 @@ def control_OLED():
     print('OLED Started')
     
     # Setup for Light sensor
-    i2c_light = busio.I2C(board.SCL, board.SDA)
-    sensor = adafruit_tsl2591.TSL2591(i2c_light)
+    #i2c_light = busio.I2C(board.SCL, board.SDA)
+    #sensor = adafruit_tsl2591.TSL2591(i2c_light)
 
     # Setup for STEMMA sensor
-    i2c_bus = busio.I2C(SCL, SDA)
+    #i2c_bus = busio.I2C(SCL, SDA)
 
-    ss = Seesaw(i2c_bus, addr=0x36)
+    #ss = Seesaw(i2c_bus, addr=0x36)
 
     # Setup for OLED
 
     # Create the I2C interface.
-    i2c = busio.I2C(SCL, SDA)
+    #i2c = busio.I2C(SCL, SDA)
 
     # Create the SSD1306 OLED class.
     # The first two parameters are the pixel width and pixel height.  Change these
@@ -120,7 +134,7 @@ def control_OLED():
         #print('Light: ', str(light))
         #print('-----------------------------------')
         
-        time.sleep(2)
+        time.sleep(5)
         # Draw a black filled box to clear the image.
         draw.rectangle((0, 0, width, height), outline=0, fill=0)
 
