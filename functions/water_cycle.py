@@ -74,14 +74,15 @@ def water_cycle(moisture_threshold=799, water_for_seconds=3, after_watering_wait
         touch = ss.moisture_read()
         print('Moisture: ', touch)
         if touch > moisture_threshold:
-            time.sleep(10)
-        
-        elif touch <= moisture_threshold + 1:
+            time.sleep(60*30)
+        elif touch <= 350:
+            touch = 'Likely Sensor Error'
+            time.sleep(60*10)
+        elif touch > 350 and touch <= moisture_threshold + 1:
             for i in OutputPins:
                 GPIO.output(i, False)
                 print('Relay On')
-            time.sleep(water_for_seconds)
-        
+            time.sleep(water_for_seconds) 
             for i in OutputPins:
                 GPIO.output(i, True)
                 print('Relay Off')
