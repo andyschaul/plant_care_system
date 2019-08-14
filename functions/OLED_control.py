@@ -123,6 +123,8 @@ def control_OLED():
     font = ImageFont.truetype('/home/pi/virtEnv1/plant_care_system/slkscrb.ttf', 8)
 
     while True:
+        #i2c_bus = busio.I2C(SCL, SDA)
+        #ss = Seesaw(i2c_bus, addr=0x36)
         # Get moisture and temperature readings
         touch = ss.moisture_read()
         temp = ss.get_temp()
